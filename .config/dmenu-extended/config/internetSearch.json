@@ -1,0 +1,33 @@
+{
+    "default": "Google",
+    "providers": [
+        {
+            "title": "Google",
+            "url": "https://www.google.com/search?q=%keywords%"
+        },
+        {   
+            "title": "Youtube",
+            "url": "https://www.youtube.com/results?search_query=%keywords%"
+        },
+        {   
+            "title": "Arch AUR",
+            "url": "https://aur.archlinux.org/packages/?O=0\\&K=%keywords%"
+        },
+        {   
+            "title": "Arch Packages",
+            "url": "https://www.archlinux.org/packages/?sort=\\&q=%keywords%"
+        },
+        {
+            "title": "Github",
+            "url": "https://github.com/search?q=%keywords%"
+        },
+        {
+            "title": "Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Special:Search?search=%keywords%"
+        },
+        {
+            "title": "Google images",
+            "url": "https://www.google.com/images?q=%keywords%"
+        }
+    ]
+}

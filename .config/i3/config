@@ -1,0 +1,140 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+font xft:Terminus 8
+
+# Mouse+$mod -> drag floating windows
+floating_modifier $mod
+
+bindsym $mod+Return exec urxvt
+bindsym $mod+Ctrl+Return exec urxvt -title "Incognito" -e /bin/bash --rcfile ~/.bashrc_incognito
+bindsym $mod+Shift+c kill
+
+# change focus
+# todo: figure out how to use j and k to cycle all windows instead of just focusing left and righ
+bindsym $mod+j focus left
+bindsym $mod+k focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# fullscreen mode
+bindsym F11 fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+
+# resize window
+mode "resize" {
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+Shift+question mode "resize"
+
+
+#bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+q exit
+
+
+bindsym $mod+r exec dmenu_extended_run
+bindsym $mod+l exec ~/.bin/i3lock.sh
+exec xautolock -time 10 -locker ~/.bin/i3lock.sh &
+
+# autoswitch to previous workspace after attempting to switch to current workspace
+# workspace_auto_back_and_forth yes
+
+
+for_window [class="Firefox"]  border pixel 0
+for_window [class="skype"]    border pixel 0, floating enable
+for_window [class="mpv"]      border pixel 0, floating enable, sticky disable
+# for_window [class="feh"]      border pixel 0, floating enable
+for_window [class="feh"]      border pixel 1
+for_window [class="URxvt"]    border pixel 1
+for_window [class="URxvt" title="Incognito"] border normal 1
+
+
+# I wish there was a way to get scrW and H and do basic math with it, but i3 forces
+# me to resort to raw numbers; this is specifically for 1366 x 768 
+for_window [class="mpv" title="*youtube*"] sticky enable, \
+   resize set 160 120, \
+   move position 1191 px 15 px
+
+
+# Start i3bar
+bar {
+    position bottom
+#    tray_output none
+    colors { focused_workspace #d79921 #d79921 #000000 }
+    status_command i3status -c ~/.config/i3/i3status.conf
+}
+
+#bar {
+#    position top
+#    workspace_buttons no
+#    colors { focused_workspace #d79921 #d79921 #000000 }
+#}
+
+# set border to a mellow yellow
+client.focused #222222 #222222 #ffffff #F38022 #d79921
+

@@ -1,0 +1,11 @@
+#
+# ~/.bashrc_incognito
+# For when commands shouldn't be saved to ./.bash_history
+
+[[ $- != *i* ]] && return
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
+# unset HISTFILE
+HISTFILE=/dev/null
+PS1='$ '
+
