@@ -60,7 +60,8 @@ local patterns = {
        s=string.gsub(s, "OCEAN RADIO CHILLED: ", "")
        s=string.gsub(s, "MusicArtclub Thessaloniki Athens Greece: ",              "")
        s=string.gsub(s, "The Buzzoutroom%.%.%.Chilled%-out Ambient Downbeats%: ", "")
-
+       s=string.gsub(s, "LOUNGE%-RADIO%.COM %- swiss made: ", "")
+        
        return s
     end), "no track" },
     { "%b", bind(string.match, status or "", "^%[(%a+)%]") },                             -- Track status

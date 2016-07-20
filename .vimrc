@@ -32,7 +32,10 @@ set hlsearch
 map <silent> u :set hlsearch!<cr>
 
 " Use arrow keys to scroll
-" more less-like behavior
 noremap <UP> <C-Y>
 noremap <DOWN> <C-E>
+
+" Unbind these
+noremap <LEFT> <NOP>
+noremap <RIGHT> <NOP>
 

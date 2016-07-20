@@ -10,6 +10,10 @@
             "url": "https://www.youtube.com/results?search_query=%keywords%"
         },
         {   
+            "title": "Arch Wiki",
+            "url": "https://wiki.archlinux.org/index.php?title=Special%3ASearch\\&search=%keywords%\\&go=Go"
+        },
+        {   
             "title": "Arch AUR",
             "url": "https://aur.archlinux.org/packages/?O=0\\&K=%keywords%"
         },

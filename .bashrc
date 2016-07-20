@@ -8,21 +8,37 @@ export HISTCONTROL=ignoredups
 
 export PATH=$PATH:$HOME/.bin
 
+alias feh='feh --image-bg black'
+alias calc='calc -p'
+
 alias ls='ls --color=auto'
 alias ll='ls -l'
-alias lsc='clear; ls --color=auto'
+alias lsc='clear; ls'
 alias lsg='ls -GAhl'
 alias cls='clear'
-alias feh='feh --image-bg black'
+
 alias curll='curl -L -O -#'
 alias sysu='systemctl --user'
 
-toclipboard() { xclip -selection clipboard $@; }
-toprimary() { xclip -selection primary $@; }
+# ww [delay or 2.0s] [command [args ...]]
+ww() {
+    case $1 in
+        *[!0-9]*) watch -t -x sh -c "$(echo -n $@)";;
+        *)  watch -n $1 -t -x sh -c "$(for i in ${@:2}; do i+=" "; echo -n "$i"; done)";;
+        '') ;;
+    esac
+}
+
+# q [command [args ...]]
+# Quiet a command and suppress output
+q() { $@ &>/dev/null; }
+
+tocl() { xclip -selection clipboard $@; }
+topr() { xclip -selection primary $@; }
 
 
-# Quiet a command and suppress stdout
-q() { $@ 1>/dev/null; }
+
+
 alias logtrack='track.lua --format="%n" >> ~/.tracklist'
 
 PS1='[\u@\h \W]\$ '
