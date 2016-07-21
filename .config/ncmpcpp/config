@@ -1,0 +1,28 @@
+# For details, see /usr/share/doc/ncmpcpp/config
+
+ncmpcpp_directory = ~/.config/ncmpcpp
+lyrics_directory = ~/Music/.lyrics
+mpd_music_dir = ~/Music
+
+# mpd_host = localhost
+# mpd_port = 6600
+# mpd_connection_timeout = 5
+
+visualizer_fifo_path = /tmp/mpd.fifo
+visualizer_in_stereo = yes
+visualizer_sample_multiplier = 1
+# visualizer_sync_interval = 30
+
+visualizer_type = wave_filled
+visualizer_look = ~~
+
+song_list_format = {$8%t}|{$8%f}$R{$4(%l)$9}
+now_playing_prefix = $r
+now_playing_suffix = $/r
+
+playlist_display_mode = classic
+autocenter_mode = yes
+
+progressbar_look = ||
+progressbar_boldness = no
+
