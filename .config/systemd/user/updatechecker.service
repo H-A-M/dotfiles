@@ -1,0 +1,9 @@
+[Unit]
+Description=Check number of out-of-date packages
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c "checkupdates | wc -l > ~/.package_updates"
+
+[Install]
+WantedBy=default.target

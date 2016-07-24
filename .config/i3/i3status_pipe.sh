@@ -28,18 +28,20 @@ do
             # print memory
             # mkelement "`~/.bin/memory.lua --format=\"%u/%t\" -d`" "#ffffff"
 
-
             # print track
             if [[ "`~/.bin/track.lua -- \"%B\"`" == "true" ]];then
                 mkelement "`~/.bin/track.lua -- \"▶ %n %t/%T ♫ %v\"`" "#d79921"
             else
                 [[ "`~/.bin/track.lua -- \"%n\"`" != "No Track" ]] \
-                    && mkelement "`~/.bin/track.lua -- \"▮▮ %n %t/%T ♫ %v\"`" "#ffffff" \
-                    || mkelement "`~/.bin/track.lua -- \"♫ %v\"`" "#ffffff"
+                    && mkelement "`~/.bin/track.lua -- \"▮▮ %n %t/%T ♫ %v\"`"   "#ffffff" \
+                    || mkelement "`~/.bin/track.lua -- \"♫ %v\"`"               "#ffffff"
             fi
+                
+            # Todo: set color to red if out of date # > 30
+            mkelement "`echo -n \"Updates: \"` `cat ./.package_updates`" "#ffffff"
+
 
             echo "$LINEHEAD[$json_prepend$nline" || exit 1
-
             # Why do I have to do this when it's getting set to a blank string before use on every iteration?
             unset json_prepend
         else

@@ -1,0 +1,11 @@
+[Unit]
+Description=Check number of out-of-date packages every six hours
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=6hour
+Unit=updatechecker.service
+
+[Install]
+WantedBy=timers.target
+
