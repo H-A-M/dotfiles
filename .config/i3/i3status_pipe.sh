@@ -36,9 +36,10 @@ do
                     && mkelement "`~/.bin/track.lua -- \"▮▮ %n %t/%T ♫ %v\"`"   "#ffffff" \
                     || mkelement "`~/.bin/track.lua -- \"♫ %v\"`"               "#ffffff"
             fi
-                
+            
+            # print number of packages out of date, see systemd/user/updatechecker.service and timer
             # Todo: set color to red if out of date # > 30
-            mkelement "`echo -n \"Updates: \"` `cat ./.package_updates`" "#ffffff"
+            [[ -f ~/.package_updates ]] && mkelement "`echo -n \"Updates: \"` `cat ~/.package_updates`" "#ffffff"
 
 
             echo "$LINEHEAD[$json_prepend$nline" || exit 1
