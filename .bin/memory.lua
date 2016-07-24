@@ -86,6 +86,8 @@ do  -- Todo: make a module or something for a library of utility functions like 
     end
 end
 
-io.stdout:write(format.."\n");
-os.exit(fdesc:close())
+-- io.stdout:write(format.."\n");
+print(format)
+-- os.exit(fdesc:close())
+os.exit(0)
 

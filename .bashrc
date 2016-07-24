@@ -33,10 +33,6 @@ ww() {
 # Quiet a command and suppress output
 q() { $@ &>/dev/null; }
 
-# c [command [args ...]]
-# Clear terminal and then execute a command
-c() { clear; $@; }
-
 tocl() { xclip -selection clipboard $@; }
 topr() { xclip -selection primary $@; }
 

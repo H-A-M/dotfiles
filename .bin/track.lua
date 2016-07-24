@@ -48,7 +48,7 @@ local settings = fdesc:read()
 
 -- Any evaluation done in bind here is acceptable
 local patterns = {
-    { "%N", function() end, status and track or "no track" },       -- Raw title
+    { "%N", function() end, status and track or "No Track" },       -- Raw title
     { "%n", (function()                             -- Title without stream prefixes
        if not status then return end
       
@@ -63,8 +63,8 @@ local patterns = {
        s=string.gsub(s, "LOUNGE%-RADIO%.COM %- swiss made: ", "")
         
        return s
-    end), "no track" },
-    { "%b", bind(string.match, status or "", "^%[(%a+)%]") },                             -- Track status
+    end), "No Track" },
+    { "%b", bind(string.match, status or "", "^%[(%a+)%]"), "stopped" },                  -- Track status
     { "%B", bind(tostring, string.match(status or "", "^%[playing%]")~=nil) },            -- Track is playing (bool)
     { "%t", bind(string.match, status or "", "(%d+:%d+)/%d+:%d+"), "0:00" },              -- Elapsed time
     { "%T", bind(string.match, status or "", "%d+:%d+/(%d+:%d+)"), "0:00" },              -- Total time
@@ -78,7 +78,6 @@ local patterns = {
     { "%y", bind(tostring, string.match(settings or track, "single: (%a+)") ) },   -- Mode: Single
     { "%c", bind(tostring, string.match(settings or track, "consume: (%a+)")) },   -- Mode: Consume
 
-    -- Todo: consider a metatable to set [ "%flag" ] = flag_index then grab and reuse the binds above
     -- { "%R", bind(tostring, string.match(settings or track, "repeat: (%a+)") == "on") },   -- Mode: Repeat (bool)
     -- { "%Z", bind(tostring, string.match(settings or track, "random: (%a+)") == "on") },   -- Mode: Random (bool)
     -- { "%Y", bind(tostring, string.match(settings or track, "single: (%a+)") == "on") },   -- Mode: Single (bool)

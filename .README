@@ -1,2 +1,14 @@
 # dotfiles
-Personal configuration files and some scripts I use.
+
+These are my various dotfiles. Some dependences include:
+    i3-wm
+    lua 5.3
+    lua-luajson
+    mpd
+    mpc
+
+    terminus-font
+    ttf-inconsolata
+
+Todo: update this
+
