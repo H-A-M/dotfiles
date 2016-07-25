@@ -1,5 +1,7 @@
 [Unit]
 Description=Check number of out-of-date packages
+Wants=network-online.target
+After=network-online.target
 
 [Service]
 Type=oneshot

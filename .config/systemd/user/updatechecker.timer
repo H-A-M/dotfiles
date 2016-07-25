@@ -1,9 +1,9 @@
 [Unit]
-Description=Check number of out-of-date packages every six hours
+Description=Check number of Out-of-Date packages periodically
 
 [Timer]
 OnBootSec=10min
-OnUnitActiveSec=6hour
+OnUnitActiveSec=3hour
 Unit=updatechecker.service
 
 [Install]

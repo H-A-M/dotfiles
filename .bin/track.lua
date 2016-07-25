@@ -61,6 +61,7 @@ local patterns = {
        s=string.gsub(s, "MusicArtclub Thessaloniki Athens Greece: ",              "")
        s=string.gsub(s, "The Buzzoutroom%.%.%.Chilled%-out Ambient Downbeats%: ", "")
        s=string.gsub(s, "LOUNGE%-RADIO%.COM %- swiss made: ", "")
+       s=string.gsub(s, "Cafedelmar FM: ", "")
         
        return s
     end), "No Track" },
