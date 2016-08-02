@@ -17,8 +17,8 @@
             "vim;:"
         ],
         [
-            "top -u pagano",
-            "top -u pagano;"
+            "top (User)",
+            "top -u $USER;"
         ],
         [
             "ncmpcpp",
