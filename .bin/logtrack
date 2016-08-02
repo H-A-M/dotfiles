@@ -1,0 +1,3 @@
+#! /bin/sh
+# dmenu doesn't know bash aliases so we'll use this script
+track.lua --format="%n" >> ~/.tracklist

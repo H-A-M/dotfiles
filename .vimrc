@@ -4,7 +4,7 @@ syntax on
 set nocompatible
 set encoding=utf8
 
-colorscheme zellner
+colorscheme ron
 set background=dark
 
 set nobackup

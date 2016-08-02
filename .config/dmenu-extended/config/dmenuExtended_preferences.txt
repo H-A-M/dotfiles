@@ -1,0 +1,105 @@
+{
+    "alias_applications": false,
+    "alias_display_format": "{name}",
+    "exclude_items": [],
+    "filebrowser": "xdg-open",
+    "fileopener": "xdg-open",
+    "filter_binaries": true,
+    "follow_symlinks": false,
+    "include_applications": true,
+    "include_binaries": true,
+    "include_hidden_files": true,
+    "include_hidden_folders": true,
+    "include_items": [
+        "firefox -private-window",
+        [
+            "vim",
+            "vim;:"
+        ],
+        [
+            "top -u pagano",
+            "top -u pagano;"
+        ],
+        [
+            "ncmpcpp",
+            "ncmpcpp;"
+        ],
+        [
+            "logtrack",
+            "logtrack;"
+        ]
+    ],
+    "indicator_alias": "",
+    "indicator_edit": "*",
+    "indicator_submenu": "->",
+    "menu": "dmenu",
+    "menu_arguments": [
+        "-b",
+        "-i",
+        "-nf",
+        "#888888",
+        "-nb",
+        "#1D1F21",
+        "-sf",
+        "#ffffff",
+        "-sb",
+        "#1D1F21",
+        "-fn",
+        "terminus",
+        "-l",
+        "8"
+    ],
+    "path_aliasFile": "",
+    "path_shellCommand": "~/.dmenuEextended_shellCommand.sh",
+    "scan_hidden_folders": true,
+    "terminal": "urxvt",
+    "valid_extensions": [
+        "",
+        "avi",
+        "bib",
+        "doc",
+        "docxxls",
+        "gif",
+        "html",
+        "iso",
+        "jpg",
+        "lua",
+        "lyx",
+        "m3u",
+        "m4a",
+        "md",
+        "mp3",
+        "mpg",
+        "odf",
+        "ods",
+        "pdf",
+        "php",
+        "pls",
+        "png",
+        "ps",
+        "py",
+        "sublime-project",
+        "svg",
+        "tex",
+        "txt",
+        "webm",
+        "xcf",
+        "xlsx",
+        "zip"
+    ],
+    "watch_folders": [
+        "~/",
+        "~/Desktop",
+        "~/Documents",
+        "~/Downloads",
+        "~/Media",
+        "~/Music",
+        "~/Pictures",
+        "~/Reference",
+        "~/Workspace"
+    ],
+    "ignore_folders": [
+        "~/Pictures/.d"
+    ],
+    "webbrowser": "xdg-open"
+}

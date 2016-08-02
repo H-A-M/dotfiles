@@ -3,17 +3,49 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+
+
 font xft:Terminus 8
+
+# todo: Fix these stupid colors because set_from_resource is not functioning properly
+set_from_resource $foreground foreground #ffffff
+set_from_resource $background background #ffffff
+
+set_from_resource $color0  color0      #000000
+set_from_resource $color8  color8      #000000
+set_from_resource $color1  color1      #000000
+set_from_resource $color9  color9      #000000
+set_from_resource $color2  color2      #000000
+set_from_resource $color10 color10     #000000
+set_from_resource $color3  color3      #000000
+set_from_resource $color11 color11     #000000
+set_from_resource $color4  color4      #000000
+set_from_resource $color12 color12     #000000
+set_from_resource $color5  color5      #000000
+set_from_resource $color13 color13     #000000
+set_from_resource $color6  color6      #000000
+set_from_resource $color14 color14     #000000
+set_from_resource $color6  color6      #000000
+set_from_resource $color14 color14     #000000
+set_from_resource $color7  color7      #000000
+set_from_resource $color15 color15     #000000
+
+set $black1 #282828
+set $black2 #1d2021
+
+#                        BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
+ client.focused          #000000     #000000     #ffffff     $color1     $color3
+ client.unfocused        #000000     #000000     #737373     $black2     $black2
+ client.focused_inactive $black1     $black1     $color7     $black2     $black2
+ client.urgent           $color1     $color1     $black1     $color1     $color1
+ client.background       $black1
+
 
 # Mouse+$mod -> drag floating windows
 floating_modifier $mod
 
-bindsym $mod+Return exec urxvt
-bindsym $mod+Ctrl+Return exec urxvt -title "Incognito" -e /bin/bash --rcfile ~/.bashrc_incognito
-bindsym $mod+Shift+c kill
-
-# change focus
-# todo: figure out how to use j and k to cycle all windows instead of just focusing left and righ
+# Change Window Focus
+# Todo: Figure out how to use j and k to cycle all windows instead
 bindsym $mod+j focus left
 bindsym $mod+k focus right
 
@@ -22,7 +54,9 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
+
+# Move Focused Window
+#
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move right
 
@@ -34,27 +68,32 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+h split h
 bindsym $mod+v split v
 
-# fullscreen mode
+
+# Fullscreen Mode
+#
 bindsym F11 fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
+
+# Change Container Layout (stacked, tabbed, toggle split)
+#
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
+
+# Toggle Tiling / Floating
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
+# Change Focus Between Tiling / Floating Windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
+# Focus the Parent Container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
+# Focus the Child Container
+# bindsym $mod+d focus child
 
-# switch to workspace
+# Switch to Workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -66,7 +105,7 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-# move focused container to workspace
+# Move Focused Container to Workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
@@ -79,12 +118,14 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 
-# resize window
+# Resize Window
 mode "resize" {
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
+        
+        # Todo: bindsym 1-3 for preset sizes
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -92,19 +133,19 @@ mode "resize" {
 bindsym $mod+Shift+question mode "resize"
 
 
-#bindsym $mod+Shift+c reload
+#bindsym $mod+Shift+b reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exit
 
+bindsym $mod+Return exec urxvt
+bindsym $mod+Ctrl+Return exec urxvt -title "Incognito" -e /bin/bash --rcfile ~/.bashrc_incognito
+bindsym $mod+Shift+c kill
 
 bindsym $mod+r exec dmenu_extended_run
 bindsym $mod+l exec ~/.bin/i3lock.sh
-exec xautolock -time 10 -locker ~/.bin/i3lock.sh &
-
-# autoswitch to previous workspace after attempting to switch to current workspace
-# workspace_auto_back_and_forth yes
 
 
+# Class / Window Specifics
 for_window [class="URxvt"]    border pixel 1
 for_window [class="URxvt" title="Incognito"] border normal 1
 for_window [class="feh"]      border pixel 1
@@ -115,31 +156,26 @@ for_window [class="skype"]    border pixel 0, floating enable
 for_window [class="mpv"]      border pixel 0, floating enable, sticky enable \
    resize set 160 120, \
    move position 1191 px 15 px
+ 
 
-
-
-# Start i3bar
+# i3Bar
 bar {
     position bottom
+    tray_output none
+
+    font xft:Inconsolata 8, xft:Terminus 8
     colors {
-        focused_workspace #d79921 #d79921 #000000
-        separator #282828
+        focused_workspace $color1 $color11 #ffffff
+        separator $black1
     }
-    tray_output primary
-#   tray_output none
 
 #   status_command i3status -c ~/.config/i3/i3status.conf
     status_command ~/.config/i3/i3status_pipe.sh ~/.config/i3/i3status.conf
 }
 
-#bar {
-#   position top
-#   colors { focused_workspace #d79921 #d79921 #000000 }
-#   workspace_buttons no
-#
-#   status_command ~/.config/i3/i3status_primary.sh
-#}
+# exec_always urxvt -e /bin/sh -c "watch -n 5 echo d"
 
-# set border to a mellow yellow
-client.focused #222222 #222222 #ffffff #F38022 #d79921
+exec --no-startup-id xautolock -time 10 -locker ~/.bin/i3lock.sh &
+# exec_always --no-startup-id feh --bg-fill $HOME/.config/wallpapers/simple.png
+# exec --no-startup-id compton -b
 

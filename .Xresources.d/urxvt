@@ -1,0 +1,6 @@
+! disable perl
+URxvt.perl-ext:
+URxvt.perl-ext-common:
+URxvt.scrollBar: false
+URxvt.font: xft:Terminus:pixelsize=10,xft:Inconsolata:pixelsize=12
+! URxvt.letterSpace: 2

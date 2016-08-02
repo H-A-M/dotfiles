@@ -37,7 +37,5 @@ tocl() { xclip -selection clipboard $@; }
 topr() { xclip -selection primary $@; }
 
 
-alias logtrack='track.lua --format="%n" >> ~/.tracklist'
-
 PS1='[\u@\h \W]\$ '
 

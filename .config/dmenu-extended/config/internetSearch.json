@@ -1,14 +1,6 @@
 {
     "default": "Google",
     "providers": [
-        {
-            "title": "Google",
-            "url": "https://www.google.com/search?q=%keywords%"
-        },
-        {   
-            "title": "Youtube",
-            "url": "https://www.youtube.com/results?search_query=%keywords%"
-        },
         {   
             "title": "Arch Wiki",
             "url": "https://wiki.archlinux.org/index.php?title=Special%3ASearch\\&search=%keywords%\\&go=Go"
@@ -20,6 +12,18 @@
         {   
             "title": "Arch Packages",
             "url": "https://www.archlinux.org/packages/?sort=\\&q=%keywords%"
+        },
+        {
+            "title": "DuckDuckGo",
+            "url": "https://duckduckgo.com/html/?q=%keywords%"
+        },
+        {
+            "title": "Google",
+            "url": "https://www.google.com/search?q=%keywords%"
+        },
+        {   
+            "title": "Youtube",
+            "url": "https://www.youtube.com/results?search_query=%keywords%"
         },
         {
             "title": "Github",
